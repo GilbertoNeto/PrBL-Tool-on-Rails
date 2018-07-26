@@ -1,0 +1,45 @@
+  <div class="jumbotron" align="center">
+    <h1><strong>Project:</strong>
+    <%= @team.project.title %></h1>
+  <br>
+    <h2><strong>Driven Question:</strong>
+    <%= @team.project.driven_question %></h2>
+
+  <br>
+
+    <ul class="list-group">
+      <li class="list-group-item"><p>
+        <strong>Team Name: </strong>
+        <%= @team.name %>
+      </p></li>
+      <li class="list-group-item"><strong>Team Coach:</strong>
+        <strong>Coach:</strong>
+        <%= @team.coach %></li>
+      <li class="list-group-item">  <strong>Creator of Team:</strong>
+        <%=  @team.teacher.name %></li>
+
+        <br>
+      <ul class="list-group">
+        <h3>Students</h3>
+        <% @team.students.each do |student| %>
+        <% if student.leader %>
+        <li class="list-group-item">  <strong>Student:</strong>
+          <p><%= student.name %> is the team leader</p>
+        </li>
+          <% else %>
+          <li class="list-group-item">  <strong>Student:</strong>
+            <p><%= student.name %></p>
+          </li>
+        <% end %>
+
+        <% end %>
+        </ul>
+
+      <br>
+      <p><a class="btn btn-primary" href="<%= projects_path %>" role="button">Back</a></p>
+    </ul>
+    </div>
+  </div>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

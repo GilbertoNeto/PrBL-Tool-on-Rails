@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bellow_standard: MyString
+  approaching_standard: MyString
+  meeting_standard: MyString
+  rubric: one
+
+two:
+  name: MyString
+  bellow_standard: MyString
+  approaching_standard: MyString
+  meeting_standard: MyString
+  rubric: two

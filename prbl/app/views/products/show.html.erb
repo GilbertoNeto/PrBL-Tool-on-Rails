@@ -1,0 +1,32 @@
+
+<div class="jumbotron" align="center">
+  <h1><strong>Project:</strong>
+  <%= @product.project.title %></h1>
+<br>
+  <h2><strong>Driven Question:</strong>
+  <%= @product.project.driven_question %></h2>
+
+<br>
+
+  <ul class="list-group">
+
+    <li class="list-group-item"><p>
+      <strong>Product: </strong>
+      <%= @product.name %>
+    </p></li>
+    <li class="list-group-item"><strong>Team or individual:</strong>
+      <%= @product.team_or_individual %></li>
+    <li class="list-group-item">  <strong>Due date:</strong>
+      <%= @product.due_date %></li>
+    <li class="list-group-item"><strong><strong>Learning outcomes:</strong>
+    <%= @product.learning_outcomes %></li>
+    <li class="list-group-item"><p>
+      <strong>Checkpoints:</strong>
+      <%= @product.checkpoints %>
+    </p></li>
+    <br>
+    <p><a class="btn btn-primary" href="<%= projects_path %>" role="button">Back</a></p>
+
+  </ul>
+  </div>
+</div>

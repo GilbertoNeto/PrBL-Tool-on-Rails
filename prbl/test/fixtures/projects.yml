@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  duration: MyString
+  status: MyString
+  course: MyString
+  course_level: MyString
+  other_subject_area: MyString
+  driven_question: MyString
+  entry_event: MyString
+  compentences: MyString
+  product_public: false
+  onsite_people_facilities: MyString
+  equipments: MyString
+  materials: MyString
+  community_resources: MyString
+  reflection_methods: MyString
+  notes: MyString
+  teacher: one
+
+two:
+  title: MyString
+  duration: MyString
+  status: MyString
+  course: MyString
+  course_level: MyString
+  other_subject_area: MyString
+  driven_question: MyString
+  entry_event: MyString
+  compentences: MyString
+  product_public: false
+  onsite_people_facilities: MyString
+  equipments: MyString
+  materials: MyString
+  community_resources: MyString
+  reflection_methods: MyString
+  notes: MyString
+  teacher: two

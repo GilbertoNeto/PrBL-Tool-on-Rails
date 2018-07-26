@@ -1,0 +1,50 @@
+
+<div class="jumbotron" align="center">
+  <h1><strong>Title:</strong>
+  <%= @project.title %></h1>
+
+  <ul class="list-group">
+    <li class="list-group-item"> <strong>Duration: </strong><%= @project.duration %></li>
+    <li class="list-group-item">  <strong>Status: </strong> <%= @project.status %></li>
+    <li class="list-group-item"><strong>Course: </strong> <%= @project.course %></li>
+    <li class="list-group-item"><strong>Course level: </strong> <%= @project.course_level %></li>
+    <li class="list-group-item"><strong>Other subject area:</strong>
+    <%= @project.other_subject_area %></li>
+    <li class="list-group-item"><strong>Driven question:</strong>
+    <%= @project.driven_question %>
+</li>
+    <li class="list-group-item"><strong>Entry event:</strong>
+    <%= @project.entry_event %>
+</li>
+    <li class="list-group-item"><strong>Compentences:</strong>
+    <%= @project.compentences %>
+</li>
+    <li class="list-group-item"><strong>Product public:</strong>
+    <%= @project.product_public %></li>
+    <li class="list-group-item">  <strong>Onsite people facilities:</strong>
+      <%= @project.onsite_people_facilities %>
+</li>
+    <li class="list-group-item">  <strong>Equipments:</strong>
+      <%= @project.equipments %>
+</li>
+    <li class="list-group-item"><strong>Materials:</strong>
+    <%= @project.materials %></li>
+    <li class="list-group-item">  <strong>Community resources:</strong>
+      <%= @project.community_resources %></li>
+    <li class="list-group-item">  <strong>Reflection methods:</strong>
+      <%= @project.reflection_methods %></li>
+    <li class="list-group-item">  <strong>Notes:</strong>
+      <%= @project.notes %></li>
+    <li class="list-group-item">  <strong>Teacher:</strong>
+      <%= @project.teacher.name %></li>
+
+    <br>
+    <% if teacher_signed_in? %>
+    <p><a class="btn btn-primary btn-lg" href="<%= teams_path(@project) %>" role="button">Manage Teams</a></p>
+    <p><a class="btn btn-primary btn-lg" href="<%= edit_product_path(@project) %>" role="button">Student Learning Guide</a></p>
+    <p><a class="btn btn-primary btn-lg" href="<%= rubrics_path(@project) %>" role="button">Rubrics</a></p>
+
+    <% end %>
+  </ul>
+  </div>
+</div>

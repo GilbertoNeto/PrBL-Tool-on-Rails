@@ -1,0 +1,51 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>Product Name:</strong>
+    <%= @product.name %>
+  </p>
+
+  <p>
+    <strong>Team or individual:</strong>
+    <%= @product.team_or_individual %>
+  </p>
+
+  <p>
+    <strong>Due date:</strong>
+    <%= @product.due_date %>
+  </p>
+
+  <div class="field">
+    <%= form.label :learning_outcomes %>
+    <%= form.text_field :learning_outcomes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checkpoints %>
+    <%= form.text_field :checkpoints %>
+  </div>
+
+  <div class="field">
+    <%= form.label :learning_strategies %>
+    <%= form.text_field :learning_strategies %>
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag 'product[project_id]', @product.project.id  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rubrics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Purpose assessment</th>
+      <th>Project</th>
+      <th>Driven Question</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rubrics.each do |rubric| %>
+      <tr>
+        <td><%= rubric.name %></td>
+        <td><%= rubric.purpose_assessment %></td>
+        <td><%= rubric.project.title %></td>
+        <td><%= rubric.project.driven_question %></td>
+        
+        <td><%= link_to 'Show', rubric %></td>
+        <td><%= link_to 'Edit', edit_rubric_path(rubric) %></td>
+        <td><%= link_to 'Destroy', rubric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rubric', new_rubric_path %>

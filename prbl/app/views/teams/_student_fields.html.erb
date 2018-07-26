@@ -1,0 +1,31 @@
+<div class="nested-fields">
+
+  <h4>Students</h4>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :institution %>
+    <%= f.text_field :institution %>
+  </div>
+
+  <div class="field">
+    <%= f.label :leader %>
+    <%= f.check_box :leader %>
+  </div>
+
+  <!-- COMENTÁRIO:
+    link_to_remove_association é o helper que o cocoon nos fornece para deletar algum nested
+  -->
+  <%= link_to_remove_association "remove student", f %>
+
+  <br><br><br>
+</div>

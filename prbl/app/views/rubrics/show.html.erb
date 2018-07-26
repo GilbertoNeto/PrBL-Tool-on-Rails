@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rubric.name %>
+</p>
+
+<p>
+  <strong>Purpose assessment:</strong>
+  <%= @rubric.purpose_assessment %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @rubric.project.title %>
+</p>
+
+<p>
+  <strong>Project Driven Question:</strong>
+  <%= @rubric.project.driven_question %>
+</p>
+
+<%= link_to 'Edit', edit_rubric_path(@rubric) %> |
+<%= link_to 'Back', rubrics_path %>

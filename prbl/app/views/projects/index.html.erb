@@ -1,0 +1,46 @@
+
+<div class="">
+  <h2 class="display-2"> <%= current_teacher.name %> Projects </h2>
+</div>
+
+<br><br><br>
+
+<div class="panel">
+  <table class="table table-sm table table-hover table table-bordered">
+    <thead align="center" class="thead-light">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Status</th>
+        <th scope="col">Course</th>
+        <th scope="col">Course level</th>
+        <th scope="col">Other subject area</th>
+        <th scope="col">Teacher</th>
+        <th scope="col">Project Details</th>
+        <th scope="col">Modify Project</th>
+        <th scope="col">Exclude Project</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td align="center"><%= project.title %></td>
+          <td align="center"><%= project.duration %></td>
+          <td align="center"><%= project.status %></td>
+          <td align="center"><%= project.course %></td>
+          <td align="center"><%= project.course_level %></td>
+          <td align="center"><%= project.other_subject_area %></td>
+          <td align="center"><%= project.teacher.name %></td>
+          <td align="center"><%= link_to 'Details', project %></td>
+          <td align="center"><%= link_to 'Modify', edit_project_path(project) %></td>
+          <td align="center"><%= link_to 'Exclude', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<p><a class="btn btn-primary" href="<%= new_project_path %>" role="button">Create a new Project</a></p>

@@ -1,0 +1,13 @@
+<div class="">
+  <h2 class="display-2" align="center">Send your Email contact to US</h2>
+</div>
+
+
+<br>
+
+<div class="jumbotron" align="center">
+
+  <%= form_tag(home_send_contact_path, method: :get) do %>
+    <%= text_field_tag :guest, params[:email_guest], placeholder: "Your Email" %>
+    <%= submit_tag "Submit" %>
+  <% end %>

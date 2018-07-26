@@ -1,0 +1,131 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.text_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, options_for_select([["Will Still Start",'Will Still Start'], ["In Progress", 'In Progress'], ["Completed", 'Completed']]) %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :course %>
+    <%= form.text_field :course %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_level %>
+    <%= form.text_field :course_level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :other_subject_area %>
+    <%= form.text_field :other_subject_area %>
+  </div>
+
+  <div class="field">
+    <%= form.label :driven_question %>
+    <%= form.text_field :driven_question %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entry_event %>
+    <%= form.text_field :entry_event %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_public %>
+    <%= form.check_box :product_public %>
+  </div>
+
+  <div class="field">
+    <%= form.label :onsite_people_facilities %>
+    <%= form.text_field :onsite_people_facilities %>
+  </div>
+
+  <div class="field">
+    <%= form.label :equipments %>
+    <%= form.text_field :equipments %>
+  </div>
+
+  <div class="field">
+    <%= form.label :materials %>
+    <%= form.text_field :materials %>
+  </div>
+
+  <div class="field">
+    <%= form.label :community_resources %>
+    <%= form.text_field :community_resources %>
+  </div>
+
+  <div class="field">
+    <h2>21st Century Competences </h2>
+  <%= form.label :compentences %>
+    <%= form.select :compentences, options_for_select([["Critical Thinking",'Critical Thinking'],
+      ["Communication", 'Communication'], ["Creativity", 'Creativity'], ["Collaboration",'Collaboration'],
+      ["Character",'Character'], ["Citizenship",'Citizenship']]) %>
+  </div>
+
+  <div class="field">
+    <!-- <%= form.label :reflection_methods %>
+    <%= form.text_field :reflection_methods %> -->
+      <h2>Reflection Methods </h2>
+     <%= form.radio_button :reflection_methods, 'Journal/Learning Log' %> Journal/Learning Log<br />
+     <%= form.radio_button :reflection_methods, 'Focus Group' %> Focus Group<br />
+     <%= form.radio_button :reflection_methods, 'Whole Class Discussion' %> Whole Class Discussion<br />
+     <%= form.radio_button :reflection_methods, 'Fishbown Discussion' %> Fishbown Discussion<br />
+     <%= form.radio_button :reflection_methods, 'Survey' %> Survey<br />
+     <%= form.radio_button :reflection_methods, 'Journal/Learning Cafe' %> Journal/Learning Cafe<br />
+
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_field :notes %>
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag 'project[teacher_id]', current_teacher.id  %>
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag 'project[institution]', current_teacher.institution  %>
+  </div>
+
+  <div id="products">
+    <%= form.fields_for :products do |products_fields| %>
+
+      <%= render partial: "product_fields", locals: {f: products_fields} %>
+    <% end %>
+
+    <div class="links">
+          <!-- COMENTÁRIO: O link_to_add_association é um helper provido pela gem -->
+          <%= link_to_add_association 'add product', form, :products %>
+          <br><br>
+        </div>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

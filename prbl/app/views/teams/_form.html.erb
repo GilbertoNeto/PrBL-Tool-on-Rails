@@ -1,0 +1,51 @@
+<%= form_with(model: team, local: true) do |form| %>
+  <% if team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coach %>
+    <%= form.text_field :coach %>
+  </div>
+
+
+  <div id="students">
+
+    <%= form.fields_for :students do |students_fields| %>
+
+      <%= render partial: "student_fields", locals: {f: students_fields} %>
+    <% end %>
+
+    <div class="links">
+          <!-- COMENTÁRIO: O link_to_add_association é um helper provido pela gem -->
+          <%= link_to_add_association 'add student', form, :students %>
+          <br><br>
+        </div>
+
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag 'team[teacher_id]', current_teacher.id %>
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag 'team[project_id]', current_teacher.project_ids  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

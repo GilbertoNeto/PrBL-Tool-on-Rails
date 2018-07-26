@@ -1,0 +1,33 @@
+
+<div class="nested-fields">
+
+  <h4>Criteria</h4>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bellow_standard %>
+    <%= f.text_field :bellow_standard %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :approaching_standard %>
+    <%= f.text_field :approaching_standard %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :meeting_standard %>
+    <%= f.text_field :meeting_standard %>
+  </div>
+<!-- COMENTÁRIO:
+    link_to_remove_association é o helper que o cocoon nos fornece para deletar algum nested
+  -->
+  <%= link_to_remove_association "remove criterium", f %>
+
+  <br><br><br>
+</div>

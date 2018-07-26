@@ -1,0 +1,51 @@
+<%= form_with(model: rubric, local: true) do |form| %>
+  <% if rubric.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rubric.errors.count, "error") %> prohibited this rubric from being saved:</h2>
+
+      <ul>
+      <% rubric.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+
+    <%= form.radio_button :purpose_assessment, 'Formative Assessment' %> Formative Assessment<br />
+    <%= form.radio_button :purpose_assessment, 'Summative Assessment' %> Summative Assessment<br />
+    <%= form.radio_button :purpose_assessment, 'Other' %> Other<br />
+
+    <%= form.label :purpose_assessment %>
+    <%= form.text_field :purpose_assessment %>
+  </div>
+
+  <div id="criteria">
+
+    <%= form.fields_for :criteria do |criteria_fields| %>
+
+      <%= render partial: "criterium_fields", locals: {f: criteria_fields} %>
+    <% end %>
+
+    <div class="links">
+          <!-- COMENTÁRIO: O link_to_add_association é um helper provido pela gem -->
+          <%= link_to_add_association 'add Criteria', form, :criteria %>
+          <br><br>
+        </div>
+
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag 'rubric[project_id]', current_teacher.project_ids %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

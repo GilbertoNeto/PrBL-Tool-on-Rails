@@ -1,0 +1,37 @@
+<% if teacher_signed_in? %>
+
+<div class="">
+  <h2 class="display-2"> Teams </h2>
+</div>
+
+<br><br><br>
+
+<div class="panel">
+  <table class="table table-sm table table-hover table table-bordered">
+    <thead align="center" class="thead-light">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Coach</th>
+        <th scope="col">Project</th>
+        <th scope="col">Team Details</th>
+        <th scope="col">Modify Team</th>
+        <th scope="col">Remove Team</th>
+      </tr>
+    </thead>
+
+      <% @teams.each do |team| %>
+        <tr>
+          <td align="center"> <%= team.name %></td>
+          <td align="center"><%= team.coach %></td>
+          <td align="center"><%= team.project.title %></td>
+          <td align="center"><%= link_to 'Show', team %></td>
+          <td align="center"><%= link_to 'Edit', edit_team_path(team) %></td>
+          <td align="center"><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<% end %>

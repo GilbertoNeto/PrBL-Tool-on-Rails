@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="">
+  <h2 class="display-2" align="center">Find Projects</h2>
+</div>
+
+
+<br>
+
+<div class="jumbotron">
+
+  <%= search_form_for @q, url: finders_projects_status_url, html: { :class => "form-control", :align => "center"} do |f|%>
+    <%= f.label :status, "Project by Status" %>
+    <%= f.search_field :status_cont %>
+    <%= f.submit :Search, class: 'btn btn-primary' %>
+  <% end %>
+
+
+  <br><br><br>
+
+  <%= search_form_for @q, url: finders_projects_institution_url, html: { :class => "form-control", :align => "center"} do |f|%>
+    <%= f.label :institution, "Project by Institution" %>
+    <%= f.search_field :institution_cont %>
+    <%= f.submit :Search, class: 'btn btn-primary' %>
+  <% end %>
+</div>

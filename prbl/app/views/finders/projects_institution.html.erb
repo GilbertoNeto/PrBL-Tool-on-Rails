@@ -1,0 +1,48 @@
+<div class="">
+  <h2 class="display-2">Projects Found</h2>
+</div>
+
+<br>
+
+<div class="panel">
+  <table class="table table-sm table table-hover table table-bordered">
+    <thead align="center" class="thead-light">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Status</th>
+        <th scope="col">Course</th>
+        <th scope="col">Course level</th>
+        <th scope="col">Other subject area</th>
+        <th scope="col">Driven question</th>
+        <th scope="col">Entry event</th>
+        <th scope="col">Compentences</th>
+        <th scope="col">Onsite people facilities</th>
+        <th scope="col">Community resources</th>
+        <th scope="col">Reflection methods</th>
+        <th scope="col">Teacher</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td align="center"><%= project.title %></td>
+          <td align="center"><%= project.duration %></td>
+          <td align="center"><%= project.status %></td>
+          <td align="center"><%= project.course %></td>
+          <td align="center"><%= project.course_level %></td>
+          <td align="center"><%= project.other_subject_area %></td>
+          <td align="center"><%= project.driven_question %></td>
+          <td align="center"><%= project.entry_event %></td>
+          <td td align="center"><%= project.compentences %></td>
+          <td td align="center"><%= project.onsite_people_facilities %></td>
+          <td td align="center"><%= project.community_resources %></td>
+          <td td align="center"><%= project.reflection_methods %></td>
+          <td td align="center"><%= project.teacher.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

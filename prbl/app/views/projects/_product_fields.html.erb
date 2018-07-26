@@ -1,0 +1,29 @@
+
+<div class="nested-fields">
+
+  <h4>Products</h4>
+  
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :team_or_individual %>
+    <%= f.select :team_or_individual, options_for_select([["Team",'Team'], ["Individual", 'Individual']]) %>
+
+    <!-- <%= f.text_field :team_or_individual %> -->
+
+  </div>
+
+  <div class="field">
+    <%= f.label :due_date %>
+    <%= f.date_select :due_date, :order => [:day, :month, :year] %>
+  </div>
+  <!-- COMENTÁRIO:
+    link_to_remove_association é o helper que o cocoon nos fornece para deletar algum nested
+  -->
+  <%= link_to_remove_association "remove product", f %>
+
+  <br><br><br>
+</div>

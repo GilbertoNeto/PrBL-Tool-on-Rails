@@ -1,0 +1,43 @@
+
+<div class="">
+  <h2 class="display-2"> My Products </h2>
+</div>
+
+<br><br><br>
+
+<div class="panel">
+  <table class="table table-sm table table-hover table table-bordered">
+    <thead align="center" class="thead-light">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Team or individual</th>
+        <th scope="col">Due date</th>
+        <th scope="col">Learning outcomes</th>
+        <th scope="col">Checkpoints</th>
+        <th scope="col">Learning strategies</th>
+        <th scope="col">Project</th>
+        <th scope="col">Product Details</th>
+        <th scope="col">Modify Product</th>
+        <th scope="col">Exclude Product</th>
+      </tr>
+    </thead>
+
+      <% @products.each do |product| %>
+        <tr>
+          <td align="center"><%= product.name %></td>
+          <td align="center"><%= product.team_or_individual %></td>
+          <td align="center"><%= product.due_date %></td>
+          <td align="center"><%= product.learning_outcomes %></td>
+          <td align="center"><%= product.checkpoints %></td>
+          <td align="center"><%= product.learning_strategies %></td>
+          <td align="center"><%= product.project.title %></td>
+          <td><%= link_to 'Show', product %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
