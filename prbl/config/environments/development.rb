@@ -21,7 +21,7 @@ Rails.application.configure do
   address: 'smtp.gmail.com',
   port: 587,
   user_name: 'gilberto.neto@academico.ifpb.edu.br',
-  password: 'Ifpb120212',
+  password: '',
   authentication: 'plain',
   enable_starttls_auto: true
 }
